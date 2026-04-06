@@ -15,6 +15,14 @@ body {
     overflow: hidden;
 }
 
+// Scroll tall routes (e.g. auth) here; dashboard keeps scrolling inside `.wrapper`.
+#root {
+    flex: 1;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 button,
 a {
     outline: none !important;

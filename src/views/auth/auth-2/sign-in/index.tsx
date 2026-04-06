@@ -9,12 +9,8 @@ import { z } from 'zod'
 import { useMutation } from '@tanstack/react-query'
 import { login } from '@/services/auth'
 import { useAuth } from '@/context/AuthProvider'
-
-/** Set after you add an asset: `import logo from '@/assets/...'` then assign here. */
-const BRAND_LOGO_SRC = ''
-
-/** Optional hero image under the form (e.g. showroom photo). */
-const LOGIN_BOTTOM_IMAGE_SRC = ''
+import logo from '@/assets/images/logo_moccaz.png'
+import login_image from '@/assets/images/login_image.jpg'
 
 const loginSchema = z.object({
   email: z
@@ -24,7 +20,7 @@ const loginSchema = z.object({
   password: z
     .string()
     .min(1, 'Le mot de passe est requis')
-    .min(6, 'Le mot de passe doit contenir au moins 6 caracteres'),
+    .min(6, 'Le mot de passe doit contenir au moins 6 caractères'),
   rememberMe: z.boolean().optional(),
 })
 
@@ -66,17 +62,12 @@ const Index = () => {
       <div className="mocaz-signin-inner flex-grow-1 d-flex flex-column px-3 py-4 py-md-5">
         <header className="mb-3">
           <div className="mocaz-signin-brand-row">
-            <LuCar className="flex-shrink-0" size={28} style={{ color: '#2e0854' }} aria-hidden />
-            {BRAND_LOGO_SRC ? (
-              <img src={BRAND_LOGO_SRC} alt={appName} style={{ height: 28 }} />
-            ) : (
-              <span className="mocaz-signin-brand-text">{appName}</span>
-            )}
+            {/* <LuCar className="flex-shrink-0" size={28} style={{ color: '#2e0854' }} aria-hidden /> */}
+            <img src={logo} alt="Logo" style={{ height: 28 }} />
           </div>
         </header>
 
-        <p className="mocaz-signin-eyebrow text-center mb-2">Automotive systems</p>
-        <h1 className="mocaz-signin-headline text-center mb-4">Precision curation</h1>
+        <p className="mocaz-signin-eyebrow text-center mb-2">m-automotiv systèmes</p>
 
         <Card className="mocaz-signin-card border-0 mb-4">
           <CardBody>
@@ -88,12 +79,12 @@ const Index = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="mb-3">
                 <label htmlFor="userEmail" className="mocaz-signin-label d-block mb-2">
-                  Email address
+                  Adresse e-mail
                 </label>
                 <FormControl
                   type="email"
                   id="userEmail"
-                  placeholder="curator@mocaz.com"
+                  placeholder="exemple@m-occaz.ma"
                   className="mocaz-signin-input"
                   isInvalid={!!errors.email}
                   {...register('email')}
@@ -103,10 +94,10 @@ const Index = () => {
               <div className="mb-3">
                 <div className="d-flex justify-content-between align-items-center mb-2 gap-2">
                   <label htmlFor="userPassword" className="mocaz-signin-label mb-0">
-                    Password
+                    Mot de passe
                   </label>
                   <Link to="/auth-2/reset-pass" className="mocaz-signin-link">
-                    Forgot password?
+                    Mot de passe oublié ?
                   </Link>
                 </div>
                 <FormControl
@@ -122,43 +113,36 @@ const Index = () => {
               <div className="form-check mb-4">
                 <input className="form-check-input" type="checkbox" id="rememberMe" {...register('rememberMe')} />
                 <label className="form-check-label small text-secondary" htmlFor="rememberMe">
-                  Keep me signed in
+                  Rester connecté
                 </label>
               </div>
               <div className="d-grid">
                 <button type="submit" className="mocaz-signin-submit d-flex align-items-center justify-content-center gap-2" disabled={isSubmitting || mutation.isPending}>
-                  {isSubmitting || mutation.isPending ? 'Signing in…' : 'Sign in'}
+                  {isSubmitting || mutation.isPending ? 'Connexion…' : 'Se connecter'}
                   <LuArrowRight size={18} aria-hidden />
                 </button>
               </div>
             </form>
             <div className="text-center mt-4 pt-1">
               <p className="mocaz-signin-label mb-1" style={{ letterSpacing: '0.1em' }}>
-                Don&apos;t have an account?
+                Pas encore de compte ?
               </p>
               <a href="mailto:support@m-occaz.ma" className="fw-bold text-dark text-uppercase small text-decoration-none" style={{ letterSpacing: '0.08em' }}>
-                Contact admin
+                Contacter l&apos;administrateur
               </a>
             </div>
           </CardBody>
         </Card>
 
-        <div className="mocaz-signin-hero mb-3">
-          {LOGIN_BOTTOM_IMAGE_SRC ? (
-            <img src={LOGIN_BOTTOM_IMAGE_SRC} alt="" />
-          ) : (
-            <div className="mocaz-signin-hero-placeholder">Set LOGIN_BOTTOM_IMAGE_SRC in sign-in/index.tsx</div>
-          )}
-        </div>
-
+      
         <footer className="mt-auto text-center pb-2">
           <p className="mocaz-signin-footer-muted mb-2">
-            © {currentYear} {appName} automotive systems. Precision curation.
+            © {currentYear} {appName} — systèmes automobiles. Curation précise.
           </p>
           <div className="mocaz-signin-footer-links d-flex flex-wrap justify-content-center gap-3">
-            <a href="#">Privacy policy</a>
-            <a href="#">Terms of service</a>
-            <a href="mailto:support@m-occaz.ma">Support</a>
+            <a href="#">Politique de confidentialité</a>
+            <a href="#">Conditions d&apos;utilisation</a>
+            <a href="mailto:support@m-occaz.ma">Assistance</a>
           </div>
         </footer>
       </div>

@@ -1,6 +1,6 @@
 
-import logoSm from '@/assets/images/logo-sm.png'
-import logo from '@/assets/images/logo_moccaz.png'
+import logo from '@/assets/images/logo_moccaz_lg.svg'
+import logoSm from '@/assets/images/logo_moccaz_sm.svg'
 import { useLayoutContext } from '@/context/useLayoutContext'
 import AppMenu from '@/layouts/components/sidenav/components/AppMenu'
 import UserProfile from '@/layouts/components/sidenav/components/UserProfile'
@@ -8,17 +8,9 @@ import UserProfile from '@/layouts/components/sidenav/components/UserProfile'
 import {Link} from "react-router";
 import { TbMenu4, TbX } from 'react-icons/tb'
 import SimpleBar from "simplebar-react";
-import ClientMenu from './components/ClientMenu'
-import { useAuth } from '@/context/AuthProvider'
-import { appName } from '@/helpers'
 
 const Sidenav = () => {
   const { sidenav, hideBackdrop, changeSideNavSize } = useLayoutContext()
-  const {user}=useAuth();
-  // Get user email from localStorage to determine which menu to display
-  // const userEmail = localStorage.getItem('userEmail')
-  // const isClient = userEmail === 'client@eurofat.com'
-const role=user?.profile?.id;
   const toggleSidebar = () => {
     changeSideNavSize(sidenav.size === 'on-hover-active' ? 'on-hover' : 'on-hover-active')
   }
