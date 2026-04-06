@@ -1,0 +1,276 @@
+//
+// _authentication.scss
+//
+
+// Authentication
+.auth-box {
+    @extend .position-relative;
+    @extend .min-vh-100;
+    padding: 50px;
+    background-color: var(--#{$prefix}surface-bg);
+
+    .card-body {
+        padding: 50px;
+    }
+}
+
+.auth-box-form {
+    background-color: var(--#{$prefix}surface-card);
+    border: 1px solid var(--#{$prefix}surface-border) !important;
+    border-radius: 14px;
+    box-shadow: 0 12px 32px rgba(46, 36, 96, 0.12);
+
+    .auth-sub-text,
+    .text-muted {
+        color: #6b7280 !important;
+    }
+
+    .form-label {
+        color: var(--#{$prefix}brand-primary);
+        font-weight: 600;
+    }
+
+    .form-control {
+        border-color: var(--#{$prefix}surface-border);
+        color: var(--#{$prefix}text-primary);
+        background-color: var(--#{$prefix}surface-card);
+    }
+
+    .form-control:focus {
+        border-color: var(--#{$prefix}brand-primary);
+        box-shadow: 0 0 0 0.2rem rgba(46, 36, 96, 0.12);
+    }
+
+    .app-search .app-search-icon {
+        color: #9ca3af !important;
+    }
+
+    .btn-primary {
+        background-color: var(--#{$prefix}brand-secondary);
+        border-color: var(--#{$prefix}brand-secondary);
+        color: #fff;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:active,
+    .btn-primary.active,
+    .show > .btn-primary.dropdown-toggle {
+        background-color: var(--#{$prefix}brand-secondary-hover);
+        border-color: var(--#{$prefix}brand-secondary-hover);
+        color: #fff;
+    }
+
+    a:not(.btn) {
+        color: var(--#{$prefix}brand-primary);
+    }
+}
+
+// Auth Brand Logo (Light & Dark Mode)
+.auth-brand {
+    margin-bottom: 2rem;
+
+    .logo-dark {
+        display: block;
+    }
+
+    .logo-light {
+        display: none;
+    }
+}
+
+// Auth Page Side Image
+.card-side-img {
+    background-image: url("../../images/transport.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.auth-overlay {
+    background: linear-gradient(to top, #313a46, rgba(49,58,70, 0.8), rgba(49,58,70, 0.5));
+}
+
+// Dark mode
+html[data-bs-theme="dark"] {
+    .auth-brand {
+        .logo-light {
+            display: block;
+        }
+
+        .logo-dark {
+            display: none;
+        }
+    }
+}
+
+// Responsive
+@include media-breakpoint-up(md) {
+    .auth-box-form {
+        max-width: 500px;
+    }
+    .auth-sub-text {
+        max-width: 300px;
+    }
+}
+
+// —— MOCAZ sign-in (m-occaz.ma)
+$mocaz-purple-deep: #2e0854;
+$mocaz-purple-mid: #8e65b9;
+$mocaz-teal: #006680;
+$mocaz-page-bg: #f8faff;
+$mocaz-input-bg: #f0f4ff;
+
+.mocaz-signin-page {
+    min-height: 100vh;
+    background: linear-gradient(180deg, $mocaz-page-bg 0%, #eef2ff 100%);
+    font-family: var(--#{$prefix}font-sans-serif), system-ui, sans-serif;
+}
+
+.mocaz-signin-inner {
+    max-width: 440px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.mocaz-signin-eyebrow {
+    color: $mocaz-teal;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+}
+
+.mocaz-signin-headline {
+    color: $mocaz-purple-deep;
+    font-size: clamp(1.65rem, 4vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.mocaz-signin-card {
+    background: #fff;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 16px 48px rgba(41, 0, 84, 0.08);
+}
+
+.mocaz-signin-card .card-body {
+    padding: 1.75rem 1.5rem;
+}
+
+.mocaz-signin-label {
+    color: #475569;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.mocaz-signin-input {
+    background-color: $mocaz-input-bg !important;
+    border: 1px solid transparent !important;
+    border-radius: 12px !important;
+    padding: 0.65rem 1rem !important;
+    font-size: 0.9375rem;
+
+    &:focus {
+        border-color: rgba(41, 0, 84, 0.25) !important;
+        box-shadow: 0 0 0 3px rgba(41, 0, 84, 0.08) !important;
+    }
+}
+
+.mocaz-signin-link {
+    color: $mocaz-teal !important;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    &:hover {
+        color: darken($mocaz-teal, 6%) !important;
+    }
+}
+
+.mocaz-signin-submit {
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(90deg, $mocaz-purple-deep 0%, $mocaz-purple-mid 100%);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    padding: 0.85rem 1.25rem;
+    text-transform: uppercase;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+
+    &:hover:not(:disabled) {
+        color: #fff;
+        opacity: 0.94;
+    }
+
+    &:disabled {
+        opacity: 0.65;
+    }
+}
+
+.mocaz-signin-hero {
+    border-radius: 14px;
+    overflow: hidden;
+    min-height: 140px;
+    background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+
+    img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        filter: grayscale(1);
+        opacity: 0.85;
+    }
+}
+
+.mocaz-signin-hero-placeholder {
+    min-height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 1rem;
+    text-align: center;
+}
+
+.mocaz-signin-brand-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.mocaz-signin-brand-text {
+    color: $mocaz-purple-deep;
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+.mocaz-signin-footer-muted {
+    color: #94a3b8;
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.mocaz-signin-footer-links a {
+    color: #94a3b8;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+
+    &:hover {
+        color: $mocaz-teal;
+    }
+}

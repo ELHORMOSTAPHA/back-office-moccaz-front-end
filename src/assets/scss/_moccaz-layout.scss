@@ -1,0 +1,49 @@
+//
+// M-OCAZ — light topbar + sidebar logo strip (purple brand reads clearly)
+//
+
+header.app-topbar.app-topbar--moccaz-light {
+    background: #ffffff !important;
+    background-image: none !important;
+    box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.12);
+
+    --#{$prefix}topbar-bg: #ffffff;
+    --#{$prefix}topbar-item-color: #{$gray-700};
+    --#{$prefix}topbar-item-hover-color: #{$primary};
+    --#{$prefix}topbar-search-bg: transparent;
+    --#{$prefix}topbar-search-border: #{$gray-300};
+
+    .sidenav-toggle-button {
+        background-color: rgba($gray-900, 0.06) !important;
+        border: 1px dashed rgba($gray-900, 0.12) !important;
+        color: $gray-800 !important;
+    }
+
+    .logo-topbar {
+        .logo-light {
+            display: none !important;
+        }
+
+        .logo-dark {
+            display: block !important;
+        }
+    }
+
+    .topbar-link {
+        color: var(--#{$prefix}topbar-item-color) !important;
+
+        &:hover,
+        &:focus,
+        &:active {
+            color: var(--#{$prefix}topbar-item-hover-color) !important;
+        }
+    }
+
+    .nav-user h5 {
+        color: var(--#{$prefix}body-color);
+    }
+}
+
+.sidenav-menu.sidenav-menu--moccaz .logo {
+    background: $sidenav-bg !important;
+}
